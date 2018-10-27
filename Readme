@@ -1,0 +1,10 @@
+This repository contains the HelloPersonService which is developed as a Spring boot microservice
+with simple CRUD operations to manage the persons.
+
+It also contains the Dockerfile to create the docker image and push to Docker registry
+
+The technology used are as below :
+- SpringBoot
+- Spring Data JPA with MySQL
+- Docker
+
