@@ -5,6 +5,7 @@ import com.rashmit.poc.person.service.PersonService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,8 +18,17 @@ public class PersonController {
 
     private static final Logger LOG = LoggerFactory.getLogger("JCG");
 
+    @Value("DB_URL")
+    String dbURL;
+
     @Autowired
     private PersonService service;
+
+    @RequestMapping(value = "/echo", method = RequestMethod.GET)
+    public String echo() {
+        String echo ="Echo :"+"DB_URL:"+dbURL;
+        return echo;
+    }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public List<Person> listPerson() {
