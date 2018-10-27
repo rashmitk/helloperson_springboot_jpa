@@ -1,0 +1,13 @@
+1. Create Person
+
+http://localhost:8091/personservice/create
+--Set request body: raw,JSON(application/json)
+--Method : Post
+{
+	"name":"tanishka",
+	"age":2
+}
+
+2. List person
+--Method: GET
+http://localhost:8091/personservice/list
