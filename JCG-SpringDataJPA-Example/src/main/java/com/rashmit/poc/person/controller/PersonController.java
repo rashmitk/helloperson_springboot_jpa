@@ -26,8 +26,8 @@ public class PersonController {
 
     @RequestMapping(value = "/echo", method = RequestMethod.GET)
     public String echo() {
-        String echo ="Echo :"+"DB_URL:"+dbURL;
-        return echo;
+        String echo ="<h1>Echo Service executed successfully....<br/><br/><h3>";
+        return echo.concat("DB_URL:"+dbURL);
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
