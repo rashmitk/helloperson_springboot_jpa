@@ -18,7 +18,7 @@ public class PersonController {
 
     private static final Logger LOG = LoggerFactory.getLogger("JCG");
 
-    @Value("DB_URL")
+    @Value("${env.VARIABLE_NAME:null}")
     String dbURL;
 
     @Autowired
