@@ -9,8 +9,23 @@ The technology used are as below :
 - Docker
 
 
+Useful commands : 
 
 
-kubectl exec -it personservice-d-5c664c57f4-qz79d -- /bin/bash
-kubectl exec personservice-d-5c664c57f4-qz79d -- curl -s http://10.99.29.220:8073/personeservice/echo
-kubectl expose deployment personservice-d --name personservice-s
+docker build -t rashmit/personservice .
+docker push rashmit/personservice
+
+kubectl create -f .\person-service-k8s-deployment.yaml
+kubectl get deployment
+kubectl get po
+
+kubectl expose deployment personservice-d --name=personservice-s
+kubectl get svc
+
+
+kubectl exec -it personservice-d-5c664c57f4-rrjrf -- /bin/bash
+
+kubectl delete deployment personservice-d
+kubectl delete service personservice-s
+
+
