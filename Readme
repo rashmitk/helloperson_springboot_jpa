@@ -19,6 +19,8 @@ kubectl create -f .\person-service-k8s-deployment.yaml
 kubectl get deployment
 kubectl get po
 
+kubectl exec personservice-d-5c664c57f4-rrjrf env
+
 kubectl expose deployment personservice-d --name=personservice-s
 kubectl get svc
 
