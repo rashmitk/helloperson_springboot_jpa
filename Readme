@@ -8,3 +8,9 @@ The technology used are as below :
 - Spring Data JPA with MySQL
 - Docker
 
+
+
+
+kubectl exec -it personservice-d-5c664c57f4-qz79d -- /bin/bash
+kubectl exec personservice-d-5c664c57f4-qz79d -- curl -s http://10.99.29.220:8073/personeservice/echo
+kubectl expose deployment personservice-d --name personservice-s
