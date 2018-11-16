@@ -19,6 +19,8 @@ kubectl create -f .\person-service-k8s-deployment.yaml
 kubectl get deployment
 kubectl get po
 
+kubectl create configmap db-config --from-env-file=db.properties
+
 kubectl exec personservice-d-5c664c57f4-rrjrf env
 
 kubectl expose deployment personservice-d --name=personservice-s
@@ -29,6 +31,9 @@ kubectl exec -it personservice-d-5c664c57f4-rrjrf -- /bin/bash
 
 kubectl exec personservice-d-5c664c57f4-rrjrf -- curl -s http://10.99.37.193:8073/personservice/echoenv
 kubectl exec personservice-d-5c664c57f4-rrjrf -- curl -s http://personservice-s:8073/personservice/echoenv
+
+ 
+
 
 kubectl delete deployment personservice-d
 kubectl delete service personservice-s
