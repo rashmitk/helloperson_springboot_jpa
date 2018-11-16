@@ -18,6 +18,7 @@ docker push rashmit/personservice
 kubectl create -f .\person-service-k8s-deployment.yaml
 kubectl get deployment
 kubectl get po
+kubectl logs personservice-d-7dbf5b4bd5-k2bfr
 
 kubectl create configmap db-config --from-env-file=db.properties
 
@@ -39,3 +40,24 @@ kubectl delete deployment personservice-d
 kubectl delete service personservice-s
 
 
+
+-------------------------------------
+
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: personservice-d
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: personservice
+      labels:
+        app: personservice
+    spec:
+      containers:
+      - image: rashmit/personservice
+        name: personservice
+        envFrom:
+        configMapRef:
+        name: db-config
