@@ -20,11 +20,14 @@ public class PersonController {
 
     private static final Logger LOG = LoggerFactory.getLogger("JCG");
 
-    @Value("${env.DBURL:null}")
-    String dbURL1;
+    @Value("${URL:null}")
+    String url;
 
-    @Value("${DBURL:null}")
-    String dbURL2;
+    @Value("${username:null}")
+    String userName;
+
+    @Value("${password:null}")
+    String password;
 
     @Autowired
     private PersonService service;
@@ -35,7 +38,7 @@ public class PersonController {
         return echo;
     }
 
-    @RequestMapping(value = "/echoenv", method = RequestMethod.GET)
+   /* @RequestMapping(value = "/echoenv", method = RequestMethod.GET)
     public String echoEnv() {
         String echo ="<h1>Echo Service executed successfully....<br/><br/><h3>";
 
@@ -48,7 +51,7 @@ public class PersonController {
         System.out.println("profile_dburl :"+dburl);
 
         return echo.concat("dbURL1:"+dbURL1+", dbURL2:"+dbURL2);
-    }
+    }*/
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public List<Person> listPerson() {
