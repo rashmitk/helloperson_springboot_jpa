@@ -14,5 +14,6 @@ spec:
       - image: rashmit/personservice
         name: personservice
         envFrom:
-        - configMapRef:
-            name: db-config
+        - prefix: SAFETYNET_CONFIG_
+          configMapRef:
+            name: app-config
